@@ -24,6 +24,9 @@
                     <rect key="frame" x="14" y="69" width="45" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="下载"/>
+                    <connections>
+                        <action selector="btnClick:" destination="7dG-sQ-1DZ" eventType="touchUpInside" id="O9h-4t-ODo"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

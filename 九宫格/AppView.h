@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 @class AppModel;
 
-@interface AppView : UIView
+@interface AppView : UIView 
 @property (nonatomic, strong) AppModel *model;
 
++(instancetype) appView;
 @end

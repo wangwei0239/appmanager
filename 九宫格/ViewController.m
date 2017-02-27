@@ -52,10 +52,9 @@
 //        UIView *appView = [[UIView alloc]init];
         
         //通过动态加载xib文件创建view
-        NSBundle *mainBundle = [NSBundle mainBundle];
     
         
-        AppView *appView = [[mainBundle loadNibNamed:@"AppView" owner:nil options:nil]lastObject];
+        AppView *appView = [AppView appView];
         
         
         
