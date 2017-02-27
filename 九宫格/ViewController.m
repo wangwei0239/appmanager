@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppModel.h"
+#import "AppView.h"
 
 @interface ViewController ()
 
@@ -48,7 +49,16 @@
         
         AppModel *model = self.apps[i];
         
-        UIView *appView = [[UIView alloc]init];
+//        UIView *appView = [[UIView alloc]init];
+        
+        //通过动态加载xib文件创建view
+        NSBundle *mainBundle = [NSBundle mainBundle];
+    
+        
+        AppView *appView = [[mainBundle loadNibNamed:@"AppView" owner:nil options:nil]lastObject];
+        
+        
+        
         
         int colId = i % columnNum;
         int rowId = i / columnNum;
@@ -59,47 +69,9 @@
         
         [self.view addSubview:appView];
         
-        UIImageView *appIcon = [[UIImageView alloc]init];
-        
-        appIcon.image = [UIImage imageNamed:model.appicon];
-        
-        CGFloat iconW = 45;
-        CGFloat iconH = 45;
-        CGFloat iconX = (appView.frame.size.width - iconW) * 0.5;
-        CGFloat iconY = 0;
-        appIcon.frame = CGRectMake(iconX, iconY, iconW, iconH);
-        
-        [appView addSubview:appIcon];
-        
-        UILabel *appTitle = [[UILabel alloc]init];
-        appTitle.text = model.appname;
-        appTitle.textAlignment = NSTextAlignmentCenter;
-        appTitle.font = [UIFont systemFontOfSize:12];
-        
-        CGFloat titleW = appView.frame.size.width;
-        CGFloat titleH = 20;
-        CGFloat titleX = 0;
-        CGFloat titleY = iconH;
-        appTitle.frame = CGRectMake(titleX, titleY, titleW, titleH);
-        [appView addSubview:appTitle];
-        
-        UIButton *appBtn = [[UIButton alloc]init];
-        appBtn.backgroundColor = [UIColor greenColor];
-        [appBtn setTitle:@"下载" forState:UIControlStateNormal];
-        [appBtn setTitle:@"已下载" forState:UIControlStateDisabled];
-        appBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [appBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        CGFloat btnW = iconW;
-        CGFloat btnH = 20;
-        CGFloat btnX = iconX;
-        CGFloat btnY = CGRectGetMaxY(appTitle.frame);
-        appBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
-        
-        [appBtn addTarget:self action:@selector(btnClickEvent) forControlEvents:UIControlEventTouchUpInside];
-        
-        [appView addSubview:appBtn];
+//        [self addViewByCode:model withRootView:appView];
 
+        appView.model = model;
         
     }
     
@@ -113,6 +85,49 @@
 
 -(void) btnClickEvent{
     NSLog(@"btn clicked");
+}
+
+-(void) addViewByCode:(AppModel *)model withRootView:(UIView *)appView{
+            UIImageView *appIcon = [[UIImageView alloc]init];
+    
+            appIcon.image = [UIImage imageNamed:model.appicon];
+    
+            CGFloat iconW = 45;
+            CGFloat iconH = 45;
+            CGFloat iconX = (appView.frame.size.width - iconW) * 0.5;
+            CGFloat iconY = 0;
+            appIcon.frame = CGRectMake(iconX, iconY, iconW, iconH);
+    
+            [appView addSubview:appIcon];
+    
+            UILabel *appTitle = [[UILabel alloc]init];
+            appTitle.text = model.appname;
+            appTitle.textAlignment = NSTextAlignmentCenter;
+            appTitle.font = [UIFont systemFontOfSize:12];
+    
+            CGFloat titleW = appView.frame.size.width;
+            CGFloat titleH = 20;
+            CGFloat titleX = 0;
+            CGFloat titleY = iconH;
+            appTitle.frame = CGRectMake(titleX, titleY, titleW, titleH);
+            [appView addSubview:appTitle];
+    
+            UIButton *appBtn = [[UIButton alloc]init];
+            appBtn.backgroundColor = [UIColor greenColor];
+            [appBtn setTitle:@"下载" forState:UIControlStateNormal];
+            [appBtn setTitle:@"已下载" forState:UIControlStateDisabled];
+            appBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+            [appBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+            CGFloat btnW = iconW;
+            CGFloat btnH = 20;
+            CGFloat btnX = iconX;
+            CGFloat btnY = CGRectGetMaxY(appTitle.frame);
+            appBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    
+            [appBtn addTarget:self action:@selector(btnClickEvent) forControlEvents:UIControlEventTouchUpInside];
+            
+            [appView addSubview:appBtn];
 }
 
 @end

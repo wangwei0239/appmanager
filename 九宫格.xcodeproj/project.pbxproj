@@ -18,6 +18,7 @@
 		4A4D8E051E63D6D100C93531 /* applist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8E041E63D6D100C93531 /* applist.plist */; };
 		4A4D8E081E63EC4D00C93531 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D8E071E63EC4D00C93531 /* AppModel.m */; };
 		4A4D8E0A1E63FAC300C93531 /* AppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8E091E63FAC300C93531 /* AppView.xib */; };
+		4A4D8E0D1E6403C800C93531 /* AppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D8E0C1E6403C800C93531 /* AppView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		4A4D8E061E63EC4D00C93531 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		4A4D8E071E63EC4D00C93531 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
 		4A4D8E091E63FAC300C93531 /* AppView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppView.xib; sourceTree = "<group>"; };
+		4A4D8E0B1E6403C800C93531 /* AppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppView.h; sourceTree = "<group>"; };
+		4A4D8E0C1E6403C800C93531 /* AppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				4A4D8E061E63EC4D00C93531 /* AppModel.h */,
 				4A4D8E071E63EC4D00C93531 /* AppModel.m */,
 				4A4D8E091E63FAC300C93531 /* AppView.xib */,
+				4A4D8E0B1E6403C800C93531 /* AppView.h */,
+				4A4D8E0C1E6403C800C93531 /* AppView.m */,
 			);
 			path = "九宫格";
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			files = (
 				4A4D8DD91E63D45100C93531 /* ViewController.m in Sources */,
 				4A4D8DD61E63D45100C93531 /* AppDelegate.m in Sources */,
+				4A4D8E0D1E6403C800C93531 /* AppView.m in Sources */,
 				4A4D8DD31E63D45100C93531 /* main.m in Sources */,
 				4A4D8E081E63EC4D00C93531 /* AppModel.m in Sources */,
 			);
